@@ -16,7 +16,7 @@ spec:
   selector:
     app: kube-state-metrics
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kube-state-metrics
@@ -24,6 +24,9 @@ metadata:
   labels:
     app: kube-state-metrics
 spec:
+  selector:
+    matchLabels:
+      app: kube-state-metrics
   replicas: 1
   template:
     metadata:
